@@ -1,9 +1,9 @@
 class ChatroomsController < ApplicationController
 
     def index
-        @chatroom = Chatroom.new
-        @chatrooms = Chatroom.all
-    end
+    @chatroom = Chatroom.new
+    @chatrooms = Chatroom.all
+  end
 
   def new
     if request.referrer.split("/").last == "chatrooms"
