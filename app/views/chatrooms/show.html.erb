@@ -1,17 +1,15 @@
 <div class="row col-md-8 col-md-offset-2">
 
-    <table>
-        <tr>
-            <th>Name</th>
-        </tr>
-        <%= @chatroomUsers.each do |chatroomUser| %>
-            <tr>
-                <td>
-                    <%= chatroomUser.user_id %>
-                </td>
-            </tr>
-            <% end %>
-    </table>
+    <div class="panel panel-default">
+        <% if @chatroomUsers.any? %>
+            <div class="panel-body" id="messages">
+                <%= render partial: 'chatroom_users/chatroomUsers', collection: @chatroomUsers%>
+            </div>
+            <%else%>
+                <div class="panel-body hidden" id="messages">
+                </div>
+                <%end%>
+    </div>
 
     <h1>
         <%= @chatroom.topic %>

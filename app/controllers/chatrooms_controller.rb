@@ -43,9 +43,9 @@ class ChatroomsController < ApplicationController
     @message = Message.new
 
     #Add the user to table Chatroom-Users
-    user = ChatroomUser.new(:chatroom_id => @chatroom.id, :user_id => current_user.id)
+    user = ChatroomUser.new(:chatroom_id => @chatroom.id, :username => current_user.username)
     user.save
-    @chatroomUsers = ChatroomUser.all
+    @chatroomUsers = ChatroomUser.where(chatroom_id: @chatroom.id)
   end
 
   private
