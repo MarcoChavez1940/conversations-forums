@@ -3,7 +3,7 @@
     <div class="panel panel-default">
         <% if @chatroomUsers.any? %>
             <div class="panel-body" id="messages">
-                <%= render partial: 'chatroom_users/chatroomUsers', collection: @chatroomUsers%>
+                <%= render partial: 'chatrooms_users/chatroomUsers', collection: @chatroomUsers%>
             </div>
             <%else%>
                 <div class="panel-body hidden" id="messages">
