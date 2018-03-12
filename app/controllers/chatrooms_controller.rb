@@ -49,15 +49,17 @@ class ChatroomsController < ApplicationController
     if @userSearch.empty?
       user = ChatroomUser.new(:Chatroom_id => @chatroom.id, :username => current_user.username)
       user.save
+
+      #Emitir al broadcast para que los demas usuarios reciban al nuevo ususario
+      ActionCable.server.broadcast "users_#{@chatroom.id}_channel",
+        username: current_user.username
+      head :ok
+
     end
 
     @chatroomUsers = ChatroomUser.where(chatroom_id: @chatroom.id)
 
-    #Emitir al broadcast para que los demas usuarios reciban al nuevo ususario
-    #ActionCable.server.broadcast "messages_#{message.chatroom_id}_channel",
-    #    message: message.content,
-    #    user: message.user.username
-    #head :ok
+    
   end
 
   private
