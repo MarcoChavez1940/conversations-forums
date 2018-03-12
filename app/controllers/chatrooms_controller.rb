@@ -41,6 +41,11 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find_by(slug: params[:slug])
     @message = Message.new
+
+    #Add the user to table Chatroom-Users
+    user = ChatroomUser.new(:chatroom_id => @chatroom.id, :user_id => current_user.id)
+    user.save
+    @chatroomUsers = ChatroomUser.all
   end
 
   private
