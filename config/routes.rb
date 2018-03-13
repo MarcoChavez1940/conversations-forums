@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create" 
   delete '/logout', to: "sessions#destroy"
 
+  delete '/chatrooms_users', to: "chatroom_users#destroy"
+
+  resources :chatrooms_users
+
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 

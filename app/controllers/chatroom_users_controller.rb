@@ -1,13 +1,8 @@
 class ChatroomUsersController < ApplicationController
 
-def show
-    user = ChatroomUser.new(:chatroom_id => @chatroom.id, :user_id => current_user.id)
-    user.save
-    @chatroomUsers = ChatroomUser.all
-end
-
-    def leaveRoom
-
-        ChatroomUser.where(user_id: 1).destroy
+    def destroy
+        @userLeaveRoom = ChatroomUser.where(chatroom_id: params[:chatroom_id] ,username: current_user.username).destroy_all
+        redirect_to chatrooms_path   
     end
+
 end
