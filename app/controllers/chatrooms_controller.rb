@@ -41,6 +41,25 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find_by(slug: params[:slug])
     @message = Message.new
+
+    #Add the user to table Chatroom-Users
+
+    @userSearch = ChatroomUser.where(chatroom_id: @chatroom.id, username: current_user.username)
+
+    if @userSearch.empty?
+      user = ChatroomUser.new(:Chatroom_id => @chatroom.id, :username => current_user.username)
+      user.save
+
+      #Emitir al broadcast para que los demas usuarios reciban al nuevo ususario
+      ActionCable.server.broadcast "users_#{@chatroom.id}_channel",
+        username: current_user.username
+      head :ok
+
+    end
+
+    @chatroomUsers = ChatroomUser.where(chatroom_id: @chatroom.id)
+
+    
   end
 
   private
