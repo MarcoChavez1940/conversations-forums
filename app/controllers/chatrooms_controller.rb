@@ -19,6 +19,10 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     if @chatroom.save
+
+      support = ChatroomUser.new(:Chatroom_id => @chatroom.id, :username => "SUPPORT")
+      support.save
+
       respond_to do |format|
         format.html { redirect_to @chatroom }
         format.js
