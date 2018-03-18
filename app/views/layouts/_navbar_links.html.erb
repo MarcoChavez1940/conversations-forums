@@ -10,17 +10,24 @@
             </li>
 </ul>
 
-<ul class="nav navbar-nav navbar-right">
-    <% if current_user %>
-        <li>
-            <%= link_to "Log Out", logout_path, method: "delete" %>
-        </li>
-        <% else %>
-            <li>
-                <%= link_to "Sign Up", signup_path %>
-            </li>
-            <li>
-                <%= link_to "Log In", login_path %>
-            </li>
-            <% end %>
-</ul>
+<% if current_user %>
+    <h3 name="<%=current_user.username%>">
+        Welcome back
+        <%= current_user.username %>
+    </h3>
+    <% end %>
+
+        <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+                <li>
+                    <%= link_to "Log Out", logout_path, method: "delete" %>
+                </li>
+                <% else %>
+                    <li>
+                        <%= link_to "Sign Up", signup_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Log In", login_path %>
+                    </li>
+                    <% end %>
+        </ul>
