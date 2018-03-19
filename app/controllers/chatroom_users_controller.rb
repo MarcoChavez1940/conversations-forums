@@ -9,10 +9,14 @@ class ChatroomUsersController < ApplicationController
         ActionCable.server.broadcast "leaves_#{@chatroom_id}_channel",
             username: current_user.username
  
+        #Eliminar la sala si ya no hay mas usuarios en el.
+        userInRoom = ChatroomUser.where(chatroom_id: @chatroom_id)
+        if userInRoom.empty?
+            @chatroomDestroy = Chatroom.where(id: @chatroom_id).destroy_all
+        end
+
         redirect_to chatrooms_path
 
     end
-
-    
 
 end

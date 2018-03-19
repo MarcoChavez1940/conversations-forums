@@ -9,7 +9,11 @@ class MessagesController < ApplicationController
             ActionCable.server.broadcast "messages_#{message.chatroom_id}_channel",
                 message: message.content,
                 user: message.user.username
-            head :ok
+
+            respond_to do |format|
+                format.html { redirect_to @message }
+                format.js
+            end   
         else 
             redirect_to chatrooms_path
         end
