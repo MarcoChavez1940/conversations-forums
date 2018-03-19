@@ -1,0 +1,34 @@
+<div class="row col-md-8 col-md-offset-2">
+  
+    <%= render partial: 'chatrooms_users/leaveRoom' %>
+
+        <div class="panel panel-default">
+            <h3>Usuarios en la sala</h3>
+
+            <% if @chatroomUsers.any? %>
+                <div class="panel-body" id="users">
+                    <%= render partial: 'chatrooms_users/chatroomUsers', collection: @chatroomUsers%>
+                </div>
+                <%else%>
+                    <div class="panel-body hidden" id="messages">
+                    </div>
+                    <%end%>
+        </div>
+
+        <h1>
+            <%= @chatroom.topic %>
+        </h1>
+
+        <div class="panel panel-default">
+            <% if @chatroom.messages.any? %>
+                <div class="panel-body" id="messages">
+                    <%= render partial: 'messages/message', collection: @chatroom.messages%>
+                </div>
+                <%else%>
+                    <div class="panel-body hidden" id="messages">
+                    </div>
+                    <%end%>
+        </div>
+
+        <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+</div>
