@@ -2,20 +2,22 @@
     <div class="col-md-8 col-md-offset-2">
 
         <h2 id="log-in-title">Registrarse</h2>
-        <div class="auth-form well">
+        <form>
+        <div class="form-control">
             <%= form_for(User.new, url: signup_path) do |f| %>
 
                 <%=f.label :username%>
                     <div class="input-group">
-                        <span class="input-group-addon">@</span>
+                        <span class="input-group-text" id="basic-addon1">@</span>
                         <%= f.text_field :username, class: "form-control"%>
-                    </div>
+                    </div> <br>
 
                     <div class="actions">
                         <%= f.submit "Registrarse", class: "btn btn-primary" %>
                     </div>
                     <% end %>
         </div>
+    </form>
 
         <%= render partial: 'layouts/flash_errors'%>
 

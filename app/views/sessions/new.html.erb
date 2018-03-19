@@ -1,21 +1,23 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
-        <h2 id="log-in-title">Log in</h2>
-        <div class="auth-form well">
+        <h2 id="log-in-title">Iniciar sesión</h2>
+        <form>
+        <div class="form-control">
             <%= form_for(User.new, url: login_path) do |f| %>
 
                 <%=f.label :username%>
                     <div class="input-group">
-                        <span class="input-group-addon">@</span>
+                        <span class="input-group-text" id="basic-addon1">@</span>
                         <%= f.text_field :username, class: "form-control"%>
-                    </div>
+                    </div> <br>
 
                     <div class="actions">
-                        <%= f.submit "log in", class: "btn btn-primary" %>
+                        <%= f.submit "Iniciar sesión", class: "btn btn-primary" %>
                     </div>
                     <% end %>
         </div>
+    </form>
         <%= render partial: 'layouts/flash_errors'%>
     </div>
 </div>
