@@ -5,7 +5,6 @@ $(document).ready(function() {
             alert(data.username + " Se ha unido a la sala :D");
             $("#users").removeClass('hidden');
             return $('#users').append(this.renderMessage(data));
-
         },
         chatroom_id: function(data) {
             return data.chatroom_id
