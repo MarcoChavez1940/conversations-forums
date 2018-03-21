@@ -2959,7 +2959,7 @@
                 }
 
                 if (this.hasOwnProperty(name)) {
-                    throw new Error('alertify.dialog: name already exists');
+                    throw new Error('alertify.dialog: el usuario ya existe');
                 }
 
                 // register the dialog
