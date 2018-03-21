@@ -2,10 +2,10 @@
     <div class="col-sm-4 offset-sm-4 text-center">
 
         <h2 id="log-in-title">Iniciar sesión</h2>
-        <form>
+        
             <div class="form-control">
                     <%= form_for(User.new, url: login_path) do |f| %>
-                        <%=f.label :username%>
+                        <%=f.label :nombre%>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">@</span>
                                 <%= f.text_field :username, class: "form-control"%>
@@ -17,7 +17,7 @@
                             </div>
                             <% end %>
             </div>
-        </form>
+        
         <%= render partial: 'layouts/flash_errors'%>
     </div>
 </div>

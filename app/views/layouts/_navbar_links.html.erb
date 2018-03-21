@@ -1,18 +1,18 @@
 <ul class="navbar-nav mr-auto">
     <% if current_user %>
         <li>
-            <%= link_to "nueva sala", new_chatroom_path%>
+            <%= link_to "Nueva sala", new_chatroom_path%>
         </li>
         &emsp;
             <li>
-                <%= link_to "salas de chat", chatrooms_path %>
+                <%= link_to "Salas de chat", chatrooms_path %>
             </li>
             <% end %>
 </ul>
 
 <% if current_user %>
     <h5 name="<%=current_user.username%>">
-        ¡Bienvenido
+        ¡Hola
         <%= current_user.username %>!
     </h5>
     <% end %>
