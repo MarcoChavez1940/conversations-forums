@@ -2,7 +2,8 @@ $(document).ready(function() {
     chatroomId = $('input#message_chatroom_id').val();
     App.messages = App.cable.subscriptions.create({ channel: 'LeavesChannel', chatroom_id: chatroomId }, {
         received: function(data) {
-            alert(data.username + " Ha dejado la sala :(");
+            alertify.warning(data.username + " ha dejado la sala");
+            //alert(data.username + " Ha dejado la sala :(");
             $("#users").removeClass('hidden');
             return document.getElementById(data.username).remove();
 

@@ -1,13 +1,13 @@
-<div class="row col-md-8 col-md-offset-2">
-
-    <h1>Create a Chatroom on a programming topic</h1>
+<div class="col-sm-8 offset-sm-2 text-center">
+<br>
+    <h1>Cree una sala de chat referente a un producto</h1>
     <div class="well">
         <div class="chatroom-form">
             <%= form_for @chatroom do |f| %>
                 <div class="input-group">
-                    <span class="input-group-addon">topic:</span>
+                    <span class="input-group-addon">Producto:&emsp;</span>
                     <%= f.text_field :topic, class: "form-control"%>
-                </div>
+                </div> <br>
                 <%= f.submit class: "btn btn-primary", id: "create-chatroom" %>
                     <% end %>
         </div>
