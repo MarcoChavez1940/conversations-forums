@@ -30,6 +30,7 @@ class ChatroomsController < ApplicationController
     else
       respond_to do |format|
         flash[:notice] = {Error: ["campo vacío o sala ya existente"]}
+
         format.html { redirect_to new_chatroom_path }
         format.js { render template: 'chatrooms/chatroom_error.js.erb'} 
       end
